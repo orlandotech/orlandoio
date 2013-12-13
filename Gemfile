@@ -15,6 +15,24 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
+# bootstrap
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
+#authentication
+gem 'devise'
+
+# Image and file upload
+gem 'mini_magick'
+gem 'paperclip'
+
+# Application setup
+gem 'figaro'
+
+#Debugging
+gem 'pry'
+gem 'faker'
+gem 'awesome_print'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -30,6 +48,24 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development do
+  gem 'sqlite3'
+  gem 'better_errors'
+  gem 'sextant'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+
+  # Guard and Livereload gems
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'guard-zeus'
+  gem 'rb-inotify', :require => false
+end
+
+group :production do 
+  gem 'pg'
 end
 
 # Use ActiveModel has_secure_password

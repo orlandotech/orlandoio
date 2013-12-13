@@ -1,28 +1,10 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#Orlando.io
+Orlando Startup Community Directory. 
+Connecting the people, places, and events, that make up the City Beautifuls startup, creative, and tech community. 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+v1.
+user creates profile with: name, email, bio, tag, and picture
+user can login with email address
+user can search for members based on tag 
+user can visit profile page 
