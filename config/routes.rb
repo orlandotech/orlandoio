@@ -4,6 +4,7 @@ Orlandoio::Application.routes.draw do
     :registrations => "users/registrations",
     :passwords => "users/passwords"
   }
+  resources :users, only: [:show, :index]
   get "/about", to: "static_pages#about"
   root "static_pages#home"
 

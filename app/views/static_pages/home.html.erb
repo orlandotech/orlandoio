@@ -1,10 +1,36 @@
-<h1>Orlando.io</h1>
-<h2>Connecting the Orlando technology, creative, business community</h2>
-
-
-<%= link_to new_user_registration_path do %>
-  <button class="btn btn-primary btn-lg">
-    &laquo; Add your name &raquo;
-  </button>
+<% content_for :jumbotron do %>
+<div class="jumbotron">
+<div class="container header-image">
+    <h1>Orlando.io</h1>
+    <h2>Connecting the Orlando technology, creative, and business community</h2>
+    <%= link_to new_user_registration_path do %>
+    <button class="btn btn-primary btn-lg">
+      &laquo; Add your name &raquo;
+    </button>
+  <% end %>
+  </div>
+  </div>
 <% end %>
+
+   <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+      <%  @users.each do |user| %>
+        <div class="col-md-4">
+          <h1><%= link_to user.full_name, user %>
+
+            </h1>
+          <%= image_tag user.avatar(:medium) %><br/>
+          <h4><%= user.category.upcase %></h4>
+        </div>
+      <% end %>
+      </div>
+      <%= paginate @users %>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Orlando Tech 2013</p>
+      </footer>
+    </div> <!-- /container -->
 
