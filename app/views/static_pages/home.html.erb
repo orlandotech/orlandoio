@@ -1,33 +1,33 @@
 <% content_for :jumbotron do %>
-<div class="jumbotron">
-  <h1>Orlando.io</h1>
-</div>
-  <div class="col-lg-4 col-lg-offset-4 ">
-        <h1>Orlando.io</h1>
-        <h2>Connecting the Orlando technology, creative, and business community</h2>
+<div class="jumbotron-custom jumbotron text-center v-center">
+  <div class="row content-text">
+    <h1>Orlando.io</h1>
+    <h2>Startup Community Directory</h2>
     <%= link_to new_user_registration_path do %>
     <button class="btn btn-primary btn-lg">
-      &laquo; Add your name &raquo;
+        &laquo; Add Your Name! &raquo;
     </button>
     <% end %>
   </div>
-</div>
+</div> 
 <% end %>
 
-   <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-      <%  @users.each do |user| %>
-        <div class="col-md-4">
-          <h1><%= link_to user.full_name, user %>
 
-            </h1>
-          <%= image_tag user.avatar(:medium) %><br/>
-          <h4><%= user.category.upcase %></h4>
-        </div>
-      <% end %>
+
+
+
+ <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+    <%  @users.each do |user| %>
+      <div class="col-md-4">
+        <h1><%= link_to user.full_name, user %></h1>
+        <%= image_tag user.avatar(:medium) %><br/>
+        <h4><%= user.category.upcase %></h4>
       </div>
-      <%= paginate @users %>
+    <% end %>
+    </div>
+    <%= paginate @users %>
 
      
 

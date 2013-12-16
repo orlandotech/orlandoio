@@ -35,17 +35,30 @@
     </div>
 
     <% if notice %> 
-   <div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-   </div>
+    <div class="alert alert-warning alert-dismissable flyover flyover-centered">">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Warning!</strong> <%= notice %>
+    </div>
+    <% elsif alert %>
+     <div class="alert alert-warning alert-dismissable flyover flyover-centered">">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Warning!</strong> <%= alert %><
+    </div>
     <% end %>
+
+
+
+<div id="message1" class="alert alert-warning alert-dismissable flyover flyover-centered">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  <strong>Warning!</strong> Best check yo self, you're not looking too good.
+</div>
+
+
 
     <%= yield :jumbotron %>
     <%= yield %>
 
      <hr>
-
       <footer>
         <p>&copy; Orlando Tech 2013</p>
       </footer>

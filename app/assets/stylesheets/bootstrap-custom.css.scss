@@ -1,0 +1,52 @@
+body{
+  padding-top: 50px;
+}
+
+.jumbotron-custom{
+  height: 400px;
+  background-image:url('orlandosun.jpg');
+  margin: 0 auto;
+  width: 100%;
+  min-height:100%;
+  background-color:#fff;
+  color:#eee;
+  overflow:hidden;
+  }
+
+  .content-text{
+    margin-top:7%;
+  }
+
+.jumbotron-custom a {
+  color:#efefef;
+  text-decoration:none;
+}
+
+
+// Playing around with bootstrap 
+@import url(http://fonts.googleapis.com/css?family=Antic+Slab);
+
+h4 {
+  font-family: 'Antic Slab', serif;
+  font-size:30px;
+  color:#DDCCEE;
+}
+
+/* Warning and Alert fly ins  */
+.flyover {
+   left: 150%;
+   overflow: hidden;
+   position: fixed;
+   width: 50%;
+   opacity: 0.9;
+   z-index: 1050;
+   transition: left 0.6s ease-out 0s;
+}
+ 
+.flyover-centered {
+   top: 50%;
+   transform: translate(-50%, -50%);
+}
+.flyover.in {
+   left: 50%;
+}
