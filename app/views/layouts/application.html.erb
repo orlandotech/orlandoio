@@ -19,7 +19,7 @@
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Meetup", about_path %></li>
             <li><%= link_to "Groups", about_path %></li>
-            <li><%= link_to "People", about_path %></li>
+            <li><%= link_to "People", users_path %></li>
           </ul>
           <ul class= "nav navbar-nav navbar-right">
             <% if current_user %>
@@ -43,6 +43,13 @@
 
     <%= yield :jumbotron %>
     <%= yield %>
+
+     <hr>
+
+      <footer>
+        <p>&copy; Orlando Tech 2013</p>
+      </footer>
+    </div> <!-- /container -->
 
 </body>
 </html>

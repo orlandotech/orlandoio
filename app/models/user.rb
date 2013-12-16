@@ -4,11 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_attached_file :avatar, styles: { 
-    large: "450,450#",
+    large: "450x450#",
     medium: "300x300#", 
     thumb: "100x100#",
     mini: "32x32#" 
   }, 
-    :default_url => "/images/:style/missing.png"
-
+    default_url:"/images/:style/missing.png"
 end

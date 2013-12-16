@@ -43,7 +43,6 @@ u.save
   u.save
 end
 
-
 puts "#{User.count} users created"
 
  
