@@ -1,10 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Exo+2);
+
 body{
   padding-top: 50px;
 }
 
 .jumbotron-custom{
-  height: 400px;
-  background-image: url(orlandosun.jpg);
+  height: 900px;
+  background: url(orlandosun.jpg) repeat-y center center fixed;
+  background-size: cover;
   margin: 0 auto;
   width: 100%;
   min-height:100%;
@@ -13,23 +17,40 @@ body{
   overflow:hidden;
   }
 
-  .content-text{
-    margin-top:4%;
+  .content-text {
+    margin-top:16%;
+    text-shadow: 1px 1px 1px #000;
   }
 
-.jumbotron-custom a {
-  color:#efefef;
-  text-decoration:none;
+.content-text h1 {
+  font-family: 'Open Sans', serif;
+  font-weight: 800;
+  }
+
+.content-text h2 {
+  font-family: 'Open Sans', serif;
+  font-weight: 600;
+  }
+
+.content-text button{
+  font-family: 'Open Sans', serif;
+  font-weight: 800;
+  }
+
+.profile-list a {
+  font-family: 'Open Sans', serif;
+  font-weight: 600;
+  font-size:30px;
+  color:#000;
+  text-decoration: none;
 }
 
 
-// Playing around with bootstrap 
-@import url(http://fonts.googleapis.com/css?family=Antic+Slab);
-
 h4 {
-  font-family: 'Antic Slab', serif;
-  font-size:30px;
-  color:#DDCCEE;
+  font-family: 'Open Sans', serif;
+  font-weight: 400;
+  font-size:25px;
+  color:#000;
 }
 
 /* Warning and Alert fly ins  */

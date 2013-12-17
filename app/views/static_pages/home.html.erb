@@ -1,11 +1,12 @@
 <% content_for :jumbotron do %>
-<div class="jumbotron-custom jumbotron text-center v-center">
-  <div class="row content-text">
+<div class="jumbotron jumbotron-custom text-center v-center">
+  <div class="row content-text ">
     <h1>Orlando.io</h1>
     <h2>Startup Community Directory</h2>
     <%= link_to new_user_registration_path do %>
     <button class="btn btn-primary btn-lg">
-        &laquo; Add Your Name! &raquo;
+        <i class="fa fa-heart fa-lg"> </i>
+        Add Your Name!
     </button>
     <% end %>
   </div>
@@ -15,7 +16,7 @@
 
  <div class="container">
     <!-- Example row of columns -->
-    <div class="row">
+    <div class="row profile-list">
     <%  @users.each do |user| %>
       <div class="col-md-4">
         <h1><%= link_to user.full_name, user %></h1>

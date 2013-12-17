@@ -81,6 +81,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    font-awesome-rails (4.0.3.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     guard (2.2.4)
       formatador (>= 0.2.4)
@@ -225,6 +227,7 @@ DEPENDENCIES
   devise (~> 3.2.2)
   faker
   figaro
+  font-awesome-rails
   guard
   guard-livereload
   guard-zeus
