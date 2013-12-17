@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  
+  validates :bio, presence: true
+  validates :bio, length: { maximum: 150 }
+
+
   has_attached_file :avatar, styles: { 
     large: "450x450#",
     medium: "300x300#", 

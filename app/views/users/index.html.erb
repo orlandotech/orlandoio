@@ -1,14 +1,17 @@
 <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-      <%  @users.each do |user| %>
-        <div class="col-md-4">
-          <h1><%= link_to user.full_name, user %>
-
-            </h1>
-          <%= image_tag user.avatar(:medium) %><br/>
-          <h4><%= user.category.upcase %></h4>
-        </div>
-      <% end %>
-      </div>
+  <div class="row">
+    <h1>Join the Community</h1>
+    <br/>
+  </div>
     
+<div class="row profile-list">
+    <%  @users.each do |user| %>
+      <div class="col-md-4">
+        <h1><%= link_to user.full_name, user %></h1>
+        <%= image_tag user.avatar(:medium) %><br/>
+        <h4><%= user.category.upcase %></h4>
+      </div>
+    <% end %>
+    </div>
+    <%= paginate @users %>
+</div>
