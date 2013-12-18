@@ -1,15 +1,15 @@
 require 'faker'
 categories = %w[Developer Designer Investor Business]
 
-u = User.new(
-  full_name: "Orrett Davis",
-  email: "orrett.davis@gmail.com", 
-  category: categories.sample, 
-  password: "helloworld",
-  password_confirmation: "helloworld",
-  avatar: "http://placehold.it/450x450/27EBF5"
-  )
-u.save
+# u = User.new(
+#   full_name: "Orrett Davis",
+#   email: "orrett.davis@gmail.com", 
+#   category: categories.sample, 
+#   password: "helloworld",
+#   password_confirmation: "helloworld",
+#   avatar: "http://placehold.it/450x450/27EBF5"
+#   )
+# u.save
 
 u = User.new(
   full_name: "Sarah Elbadri",

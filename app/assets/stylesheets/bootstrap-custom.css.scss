@@ -24,11 +24,13 @@ body{
 
 .content-text h1 {
   font-family: 'Open Sans', serif;
+  font-size:100px; 
   font-weight: 800;
   }
 
 .content-text h2 {
   font-family: 'Open Sans', serif;
+  font-size: 36px;
   font-weight: 600;
   }
 
@@ -51,6 +53,12 @@ h4 {
   font-weight: 400;
   font-size:25px;
   color:#000;
+}
+
+
+// Submission form styling
+.form_submission{
+
 }
 
 /* Warning and Alert fly ins  */

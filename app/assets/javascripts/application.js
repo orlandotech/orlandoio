@@ -15,5 +15,3 @@
 //= require turbolinks
 //= require_tree .
 //= require twitter/bootstrap
-
-$('.alert').toggleClass('in');

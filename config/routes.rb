@@ -2,11 +2,16 @@ Orlandoio::Application.routes.draw do
 
   devise_for :users, :controllers => {
     :registrations => "users/registrations",
-    :passwords => "users/passwords"
+    :passwords => "users/passwords",
+    :omniauth_callbacks => "omniauth_callbacks"
   }
-  resources :users, only: [:show, :index]
+
+  resources :users, only: [:show, :index, :edit]
+  resources :users
   get "/about", to: "static_pages#about"
   root "static_pages#home"
+
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.

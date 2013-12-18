@@ -18,12 +18,18 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
+#friendly urls
+gem 'friendly_id', '~> 5.0.0'
+
 # bootstrap fontawesome! 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 gem 'font-awesome-rails'
+
 #authentication
 gem "devise", '~> 3.2.2'
+gem "omniauth"
+gem "omniauth-twitter"
 
 # Image and file upload
 gem 'mini_magick'

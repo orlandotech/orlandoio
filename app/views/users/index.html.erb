@@ -9,7 +9,7 @@
       <div class="col-md-4">
         <h1><%= link_to user.full_name, user %></h1>
         <%= image_tag user.avatar(:medium) %><br/>
-        <h4><%= user.category.upcase %></h4>
+        <h4><%= user.category %></h4>
       </div>
     <% end %>
     </div>
