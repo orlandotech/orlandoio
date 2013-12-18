@@ -6,8 +6,10 @@ Orlandoio::Application.routes.draw do
     :omniauth_callbacks => "omniauth_callbacks"
   }
 
-  resources :users, only: [:show, :index, :edit]
-  resources :users
+  resources :users, only: [:show, :index ]
+  
+  # resources :users
+  # 
   get "/about", to: "static_pages#about"
   root "static_pages#home"
 
