@@ -1,0 +1,10 @@
+Hello
+<%= form_for :profile do |f| %>
+  <%= f.label :bio %>
+  <%= f.text_field :bio %>
+
+  <%= f.label :social %>
+  <%= f.text_field :social %>
+
+  <%= f.submit "Update" %>
+<% end %>

@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: profiles
+#
+#  id         :integer          not null, primary key
+#  bio        :string(255)
+#  social     :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  bio: MyString
+  social: MyString
+
+two:
+  bio: MyString
+  social: MyString

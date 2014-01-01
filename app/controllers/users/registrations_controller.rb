@@ -1,6 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  skip_before_filter :check_for_email, only: [:edit, :destroy]
+
     def update
     account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
 
@@ -12,7 +14,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @user = User.find(current_user.id)
     if @user.update_attributes(account_update_params)
-      set_flash_message :notice, :updated
+      flash[:notice] = :updated
+
       # Sign in the user bypassing validation in case  password changed
       sign_in @user, :bypass => true
       redirect_to after_update_path_for(@user)

@@ -4,10 +4,6 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-group :development do 
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
-end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -44,6 +40,7 @@ gem 'figaro'
 gem 'pry'
 gem 'faker'
 gem 'awesome_print'
+gem 'annotate'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
