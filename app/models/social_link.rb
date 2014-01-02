@@ -12,4 +12,7 @@
 
 class SocialLink < ActiveRecord::Base
   belongs_to :profile
+ 
+
+
 end

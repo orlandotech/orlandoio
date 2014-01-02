@@ -28,7 +28,6 @@ u = User.new(
   category: categories.sample, 
   password: "helloworld",
   password_confirmation: "helloworld",
-  avatar: "http://placehold.it/450x450/27EBF5"
   )
 u.save
 u.profile.update_attributes(avatar: "http://placehold.it/450x450/27EBF5")

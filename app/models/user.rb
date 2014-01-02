@@ -48,7 +48,8 @@ class User < ActiveRecord::Base
   end
 
  def build_profile
-  Profile.create(user: self)
+  profile = Profile.create(user: self)
+  SocialLink.create(profile_id: profile.id)
  end
 
   def self.create_from_omniauth(auth)

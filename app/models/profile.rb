@@ -17,7 +17,8 @@
 
 class Profile < ActiveRecord::Base
   belongs_to :user
-  has_many :social_links 
+  has_many :social_links, dependent: :destroy  
+  accepts_nested_attributes_for :social_links, :reject_if => lambda { |a| a[:link].blank? }
 
    has_attached_file :avatar, styles: { 
     large: "450x450#",

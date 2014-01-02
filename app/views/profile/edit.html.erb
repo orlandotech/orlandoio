@@ -3,12 +3,10 @@
 <%= form_for @profile do |f| %>
   <div>
     <%= f.label :bio %>
-    <%= f.text_field :bio %>
+    <%= f.text_area :bio %>
   </div>
-
   <div>
-    <%= f.label :social %>
-    <%= f.text_field :social %>
+    
   </div>
 
   <div>
@@ -21,8 +19,18 @@
     <%= f.file_field :avatar %>
   </div>
 
+  <%= f.fields_for :social_links do |m| %>
+    <p>
+      <%= m.select :account, ["Facebook", "Twitter", "Linkedin", "Github"]  %> 
+      <%= m.text_field :link %>
+    </p>
+  <% end %>
+
   <div>
     <%= f.submit "Update" %>
   </div> 
 <% end %>
 </div>
+
+
+
