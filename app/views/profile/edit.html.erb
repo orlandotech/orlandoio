@@ -1,10 +1,28 @@
-Hello
-<%= form_for :profile do |f| %>
-  <%= f.label :bio %>
-  <%= f.text_field :bio %>
+<div class="container">
+  <br/>
+<%= form_for @profile do |f| %>
+  <div>
+    <%= f.label :bio %>
+    <%= f.text_field :bio %>
+  </div>
 
-  <%= f.label :social %>
-  <%= f.text_field :social %>
+  <div>
+    <%= f.label :social %>
+    <%= f.text_field :social %>
+  </div>
 
-  <%= f.submit "Update" %>
+  <div>
+    <%= f.label :category %>
+    <%= f.select :category, ["Business", "Student", "Developer", "Designer"] %>
+  </div>
+
+   <div>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div>
+    <%= f.submit "Update" %>
+  </div> 
 <% end %>
+</div>

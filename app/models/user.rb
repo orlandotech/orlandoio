@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   
-  has_one :profile 
+  has_one :profile, dependent: :destroy 
 
   after_create :build_profile
   
@@ -79,11 +79,5 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
-  has_attached_file :avatar, styles: { 
-    large: "450x450#",
-    medium: "300x300#", 
-    thumb: "100x100#",
-    mini: "32x32#" 
-  }, 
-    default_url:"/images/:style/missing.png"
+ 
 end

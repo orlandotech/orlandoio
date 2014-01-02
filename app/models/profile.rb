@@ -2,14 +2,28 @@
 #
 # Table name: profiles
 #
-#  id         :integer          not null, primary key
-#  bio        :string(255)
-#  social     :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                  :integer          not null, primary key
+#  bio                 :string(255)
+#  social              :string(255)
+#  category            :string(255)
+#  user_id             :integer
+#  created_at          :datetime
+#  updated_at          :datetime
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class Profile < ActiveRecord::Base
-  belongs_to :user 
- 
+  belongs_to :user
+  has_many :social_links 
+
+   has_attached_file :avatar, styles: { 
+    large: "450x450#",
+    medium: "300x300#", 
+    thumb: "100x100#",
+    mini: "32x32#" 
+  }, 
+    default_url:"/images/:style/missing.png"
 end

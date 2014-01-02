@@ -1,0 +1,15 @@
+<div class="container">
+  <br/>
+  <h1><%= @user.full_name %></h1> 
+  <%= image_tag @profile.avatar(:large) %>
+  <h1>I am a <%= @profile.bio %> </h1>
+  <h1>I am <%= @profile.category %></h1>
+  <h1>Where to find me:
+    <%= @profile.social %>
+    <i class="fa fa-facebook fa-1x"> </i>
+    <i class="fa fa-twitter fa-1x"> </i>
+    <i class="fa fa-dribbble fa-1x"> </i>
+    <i class="fa fa-github fa-1x"> </i>
+    <i class="fa fa-linkedin fa-1x"> </i>
+    </h1>
+</div>

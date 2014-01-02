@@ -28,8 +28,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:full_name, :email, :category, :avatar, :password, :password_confirmation) }
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:full_name, :email, :password, :password_confirmation ,:category, :avatar) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:full_name, :email, :category, :password, :password_confirmation) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:full_name, :email, :password, :password_confirmation ,:category) }
   end
 
 end

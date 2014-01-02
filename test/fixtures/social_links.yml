@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: social_links
+#
+#  id         :integer          not null, primary key
+#  account    :string(255)
+#  link       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  profile_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  account: MyString
+  link: MyString
+
+two:
+  account: MyString
+  link: MyString

@@ -1,5 +1,6 @@
 class ProfileController < ApplicationController
   def show
+    @user = User.find(params[:id])
     @profile = current_user.profile if current_user
   end
 
@@ -14,7 +15,7 @@ class ProfileController < ApplicationController
 
     if @profile.update_attributes(profile_params)
       flash[:notice] = "Profile Updated"
-      redirect_to user_path
+      redirect_to profile_path(current_user)
     else
       flash[:error] = "Error updating profile"
       render :edit
@@ -23,6 +24,6 @@ class ProfileController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:bio, :social)
+    params.require(:profile).permit(:bio, :social, :avatar, :category)
   end
 end

@@ -9,7 +9,7 @@ Orlandoio::Application.routes.draw do
   
   resources :profile
 
-  resources :users, only: [:show, :index ]
+  resources :users, only: [:index ]
 
   
 
