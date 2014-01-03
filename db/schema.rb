@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20140102065244) do
   end
 
   create_table "social_links", force: true do |t|
-    t.string   "account"
-    t.string   "link"
+    t.string   "account",    default: ""
+    t.string   "link",       default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "profile_id"
@@ -66,10 +66,6 @@ ActiveRecord::Schema.define(version: 20140102065244) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "uid"
     t.string   "provider"
     t.string   "slug"
