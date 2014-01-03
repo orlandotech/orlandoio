@@ -1,35 +1,6 @@
 <div class="container">
   <br/>
-<%= form_for @profile do |f| %>
-  <div>
-    <%= f.label :bio %>
-    <%= f.text_area :bio %>
-  </div>
-  <div>
-    
-  </div>
-
-  <div>
-    <%= f.label :category %>
-    <%= f.select :category, ["Business", "Student", "Developer", "Designer"] %>
-  </div>
-
-   <div>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-  </div>
-
-  <%= f.fields_for :social_links do |m| %>
-    <p>
-      <%= m.select :account, ["Facebook", "Twitter", "Linkedin", "Github"]  %> 
-      <%= m.text_field :link %>
-    </p>
-  <% end %>
-
-  <div>
-    <%= f.submit "Update" %>
-  </div> 
-<% end %>
+<%= render "form" %>
 </div>
 
 

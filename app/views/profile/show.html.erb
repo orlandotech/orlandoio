@@ -22,13 +22,18 @@
             <i class="fa fa-twitter fa-1x"> </i>
           <% end %>
         <% when "Linkedin" %>
-          
           <%= link_to social_links.link do %>
             <i class="fa fa-linkedin fa-1x"> </i>
           <% end %>
       <% end %>
     <% end %>
     </h1>
+
+    <!-- Add authorization for edit -->
+    <% if current_user == @user %>
+      <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-primary"%>
+    <% end %>
+
 </div>
 
 

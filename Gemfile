@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 #friendly urls
 gem 'friendly_id', '~> 5.0.0'
+gem 'nested_form'
 
 # bootstrap fontawesome! 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',

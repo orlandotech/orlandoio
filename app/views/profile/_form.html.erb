@@ -1,0 +1,30 @@
+<div class="container">
+  <br/>
+<%= nested_form_for @profile do |f| %>
+  <div>
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+  </div>
+  <div>
+    <%= f.label :category %>
+    <%= f.select :category, ["Business", "Student", "Developer", "Designer"] %>
+  </div>
+   <div>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+    <%= image_tag @user.profile.avatar(:thumb) %>
+  </div>
+  <div>
+    <%= f.fields_for :social_links do |m| %>
+    <%= m.select :account, ["Facebook", "Twitter", "Linkedin", "Github"]  %> 
+    <%= m.text_field :link %>
+    <%= m.link_to_remove "", class: "glyphicon glyphicon-ban-circle" %>
+    <% end %>
+    <%= f.link_to_add "Add", :social_links, class: "btn btn-primary" %>
+  </div>
+
+  <div>
+    <%= f.submit "Update", class: "btn btn-primary" %>
+  </div> 
+<% end %>
+</div>

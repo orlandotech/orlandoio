@@ -8,11 +8,6 @@ Orlandoio::Application.routes.draw do
   }
   
   resources :profile
-
-  resources :users, only: [:index ]
-
-  
-
   get "/about", to: "static_pages#about"
   root "static_pages#home"
 
