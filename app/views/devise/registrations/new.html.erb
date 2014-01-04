@@ -1,52 +1,18 @@
 <div class="container">
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {class: "form-horizontal"}) do |f| %>
-
-  <%= devise_error_messages! %>
-
-    <div class="form-group">
-    <%= f.label :full_name,class: "col-sm-2 control-label"  %>
-    <div class="col-sm-6">
-      <%= f.text_field :full_name %>
-   </div>
-   </div>
-
-    <div class="form-group">
-    <%= f.label :category,class: "col-sm-2 control-label"  %>
-    <div class="col-sm-6">
-    <%= f.text_field :category %>
-    </div> 
-    </div>
-
-    <div class="form-group">
-    <%= f.label :email,class: "col-sm-2 control-label"  %>
-    <div class="col-sm-6">
-    <%= f.email_field :email, :autofocus => true %>
-    </div> 
-    </div>
-
-    <div class="form-group">
-    <%= f.label :password,class: "col-sm-2 control-label"  %>
-    <div class="col-sm-6">
-    <%= f.password_field :password %>
-    </div> 
-    </div>
-
-    <div class="form-group">
-    <%= f.label :password_confirmation,class: "col-sm-2 control-label"  %>
-    <div class="col-sm-6">
-    <%= f.password_field :password_confirmation %>
-    </div>
-    </div>
-  
-  <br/>
-
-  <div class="form_submission">
-    <%= f.submit "Sign up", class: "btn btn-primary" %>
-    <br/>
-    <br/>
-    <p>Have an account?</p>
-    <%= render "devise/shared/links" %>
-  </div>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {class: "form-signin"}) do |f| %>
+    <%= devise_error_messages! %>
+    
+      <%= f.text_field :full_name, :autofocus => true, class: "form-control", placeholder: "Full Name" %>
+      <%= f.email_field :email, :autofocus => true, class: "form-control", placeholder: "Email Address" %>
+      <%= f.password_field :password, :autofocus => true, class: "form-control", placeholder: "Password" %>
+      <%= f.password_field :password_confirmation, :autofocus => true, class: "form-control", placeholder: "Confirm Password" %>
+      <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block" %>
+   
+    <p>Have an account?
+    <%= render "devise/shared/links" %> </p>
 <% end %>
+</div>
+
+d
