@@ -27,4 +27,16 @@ class Profile < ActiveRecord::Base
     mini: "32x32#" 
   }, 
     default_url:"/images/:style/missing.png"
+
+after_update :profile_completeness
+
+private
+
+def profile_completeness
+  if (self.bio.present? && self.avatar.present? && self.category.present?)
+    self.public = true 
+  else
+  end
+end
+
 end

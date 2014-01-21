@@ -1,30 +1,58 @@
 <div class="container">
-  <br/>
-<%= nested_form_for @profile do |f| %>
-  <div>
-    <%= f.label :bio %>
-    <%= f.text_area :bio %>
-  </div>
-  <div>
-    <%= f.label :category %>
-    <%= f.select :category, ["Business", "Student", "Developer", "Designer"] %>
-  </div>
-   <div>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-    <%= image_tag @user.profile.avatar(:thumb) %>
-  </div>
-  <div>
-    <%= f.fields_for :social_links do |m| %>
-    <%= m.select :account, ["Facebook", "Twitter", "Linkedin", "Github"]  %> 
-    <%= m.text_field :link %>
-    <%= m.link_to_remove "", class: "glyphicon glyphicon-ban-circle" %>
-    <% end %>
-    <%= f.link_to_add "Add", :social_links, class: "btn btn-primary" %>
-  </div>
+<br/>
+<%= nested_form_for @profile, html: {class: "form-horizontal" } do |f| %>
+ <fieldset>
 
-  <div>
-    <%= f.submit "Update", class: "btn btn-primary" %>
-  </div> 
+<div class="form-group">
+<%= f.label :bio, class: "col-md-4 control-label"  %>
+<div class="col-md-4"> 
+<%= f.text_area :bio, cols: 80 ,rows: 2, placeholder: "Describe Yourself", class: "form-control"%>                    
+</div>
+</div>
+
+<div class="form-group">
+<%= f.label :category, class: "col-md-4 control-label" %>
+<div class="col-md-4">
+<%= f.select :category, ["Business", "Student", "Developer", "Designer"], class: "form-control" %>
+</div>
+</div>
+
+<div class="form-group">
+<%= f.label :avatar, "Picture", class: "col-md-4 control-label" %>
+<div class="col-md-4">
+ <%= f.file_field :avatar, class: "input-file" %>
+<% unless @user.profile.avatar %>
+  <%= image_tag @user.profile.avatar(:thumb) %>
+<%end%>
+</div>
+</div>
+
+<div class="form-group">
+<%= f.label :social_links, "Social", class: "col-md-4 control-label" %>
+<div class="col-md-4">
+<%= f.fields_for :social_links, html: {class: ""} do |m| %>
+
+<%= m.select :account, ["Facebook", "Twitter", "Linkedin", "Github", "Dribble"], class: "form-control"  %> 
+
+<%= m.text_field :link, class: "" %>
+<%= m.link_to_remove "", class: "glyphicon glyphicon-ban-circle" %>
 <% end %>
+<%= f.link_to_add "Add", :social_links, class: "btn-xs btn-primary " %>
+</div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for=""></label>
+  <div class="col-md-4">
+    <%= f.submit "Update", class: "btn btn-success form-control" %>
+  </div>
+</div>
+
+</fieldset>
+<% end %>
+
+
+
+
+
 </div>

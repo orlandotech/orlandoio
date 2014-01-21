@@ -1,0 +1,2 @@
+[1m[37m      invoke[0m  active_record
+[1m[31m      remove[0m    db/migrate/20140121204111_add_public_to_profile.rb

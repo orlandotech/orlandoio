@@ -2,6 +2,8 @@ class ProfileController < ApplicationController
  
  def index
   @users = User.order(:created_at).page params[:page]
+  #@profile = @users.profile.where(public: true)
+  #binding.pry
  end
 
   def show

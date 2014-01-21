@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140102065244) do
+ActiveRecord::Schema.define(version: 20140121204337) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140102065244) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean  "public",              default: false
   end
 
   create_table "social_links", force: true do |t|

@@ -1,39 +1,35 @@
-<div class="container">
+<div class="container"> 
+  <div>
+    <h1><%= @user.full_name %></h1>
+    
+  </div>
+  
+  <div class="row"> 
+    <div class="col-md-4">
+    <% if @profile.avatar.present? %>
+    <%-# binding.pry %>
+     <%= image_tag @profile.avatar(:large) %>
+    <% else %>
+       <div class="alert alert-warning alert-dismissable">
+        Complete your <%= link_to "profile", edit_profile_path %> and get your face listed!
+      </div>
+    <% end %>
+    <h2><%= render "social" %></h2>
+    </div>
+    
+
+    <div class="col-md-6 col-md-offset-1">
+      <h3><%= @profile.bio %> </h3>
+      <%= @profile.category %>
+      <!-- Add authorization for edit -->
   <br/>
-  <h1><%= @user.full_name %></h1> 
-  <%= image_tag @profile.avatar(:large) %>
-  <h1>I am a <%= @profile.bio %> </h1>
-  <h1>I am <%= @profile.category %></h1>
-  <h1>Where to find me:
+  <% if current_user == @user %>
+    <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-primary"%>
+  <% end %>
+    </div>
+  
 
-    <% for social_links in @profile.social_links %>
-      <% case social_links.account %>
-        <% when "Facebook" %>
-          <%= link_to social_links.link do %>
-            <i class="fa fa-facebook fa-1x"> </i>
-          <% end %>
-        <% when "Github" %>
-          <%= link_to social_links.link do %>
-            <i class="fa fa-github fa-1x"> </i>
-          <% end %>
-        <% when "Twitter" %>
-          
-          <%= link_to social_links.link do %>
-            <i class="fa fa-twitter fa-1x"> </i>
-          <% end %>
-        <% when "Linkedin" %>
-          <%= link_to social_links.link do %>
-            <i class="fa fa-linkedin fa-1x"> </i>
-          <% end %>
-      <% end %>
-    <% end %>
-    </h1>
-
-    <!-- Add authorization for edit -->
-    <% if current_user == @user %>
-      <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-primary"%>
-    <% end %>
-
+  
 </div>
 
 
