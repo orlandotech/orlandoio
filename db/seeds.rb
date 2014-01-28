@@ -3,16 +3,7 @@ categories = %w[Developer Designer Investor Business]
 
 u = User.new(
   full_name: "Sarah Elbadri",
-  email: "example1@gmail.com", 
-  password: "helloworld",
-  password_confirmation: "helloworld",
-  )
-u.save
-u.profile.update_attributes(bio: Faker::Lorem.sentence(14), category: categories.sample, avatar: "http://placehold.it/450x450/27EBF5")
-
-u = User.new(
-  full_name: "Michael Pell",
-  email: "example2@gmail.com",  
+  email: "example@gmail.com", 
   password: "helloworld",
   password_confirmation: "helloworld",
   )

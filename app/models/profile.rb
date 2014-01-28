@@ -28,14 +28,15 @@ class Profile < ActiveRecord::Base
   }, 
     default_url:"/images/:style/missing.png"
 
-after_commit :profile_completeness
+# user update_columns? 
+after_update :profile_completeness
 
 scope :published, -> { where(public: true)}
 
 private
 
 def profile_completeness
-  self.update_attributes(public: true)  if (self.bio.present? && self.avatar.present? && self.category.present?)
+  self.update_columns(public: true)  if (self.bio.present? && self.avatar.present? && self.category.present?)
 end
 
 end
