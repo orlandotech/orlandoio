@@ -1,9 +1,8 @@
 class ProfileController < ApplicationController
  
  def index
-  @users = User.order(:created_at).page params[:page]
-  #@profile = @users.profile.where(public: true)
-  #binding.pry
+  @users = User.joins(:profile).merge(Profile.published).page params[:page]
+  @profile = Profile.published.order(:created_at).page params[:page]
  end
 
   def show
@@ -15,12 +14,10 @@ class ProfileController < ApplicationController
   def edit
     @user ||= current_user
     @profile = @user.profile
-    # @social = SocialLink.friendly.find(params[:id])
     @social_links = SocialLink.where(profile_id: @profile.id) # array of all social links 
   end
 
   def update
-
     @user ||= current_user
     @profile = @user.profile
   

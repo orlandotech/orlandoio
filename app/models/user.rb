@@ -35,6 +35,9 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy 
 
   after_create :build_profile
+
+  scope :with_published_users, User.joins(:profile).where(Profile.published)
+  User.joins(:profile).merge(Profile.published)
   
   extend FriendlyId
   friendly_id :full_name, use: [:slugged, :history, :finders]

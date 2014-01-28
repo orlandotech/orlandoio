@@ -9,9 +9,11 @@
       <div class="col-md-4">
         <h1><%= link_to user.full_name, profile_path(user) %></h1>
         <%= image_tag user.profile.avatar(:medium) %><br/>
-        <h4><%= user.category %></h4>
+        <h4><% user.profile.category %></h4>
       </div>
     <% end %>
     </div>
-    <%= paginate @users %>
+    <% paginate @users %>
 </div>
+
+

@@ -21,6 +21,7 @@
     <div class="col-md-6 col-md-offset-1">
       <h3><%= @profile.bio %> </h3>
       <%= @profile.category %>
+      <%= @profile.public %>
       <!-- Add authorization for edit -->
   <br/>
   <% if current_user == @user %>
