@@ -1,7 +1,13 @@
 class ProfileController < ApplicationController
  
  def index
-  @users = User.with_published_profile.page params[:page]
+  if params[:tags]
+    @published_users = User.with_published_profile
+    @tagged_profiles = Profile.tagged_with(params[:tags], wild: true, any:true)
+    @users = @tagged_profiles.map {|profile| @published_users.find(profile.user_id)}
+  else
+    @users = User.with_published_profile.page params[:page]
+  end
  end
 
   def show
@@ -33,6 +39,6 @@ class ProfileController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:bio, :avatar, :category, social_links_attributes: [:id, :account, :link, :_destroy])
+    params.require(:profile).permit(:bio, :avatar, :category, :tag_list ,social_links_attributes: [:id, :account, :link, :_destroy])
   end
 end

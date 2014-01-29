@@ -18,6 +18,14 @@
 </div>
 
 <div class="form-group">
+<%= f.label :tag_list, "Skills", class: "col-md-4 control-label" %>
+<div class="col-md-4">
+<%= f.text_field :tag_list, placeholder: "RoR, Growth Hacking, Venture" ,class: "form-control" %>
+</div>
+</div>
+
+
+<div class="form-group">
 <%= f.label :avatar, "Picture", class: "col-md-4 control-label" %>
 <div class="col-md-4">
  <%= f.file_field :avatar, class: "input-file" %>

@@ -1,6 +1,6 @@
 Orlandoio::Application.routes.draw do
 
-  
+  get "tags/:tags", to: "profile#index", as: :tag
   devise_for :users, :controllers => {
     :registrations => "users/registrations",
     :passwords => "users/passwords",

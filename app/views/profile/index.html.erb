@@ -3,6 +3,12 @@
     <h1>Join the Community</h1>
     <br/>
   </div>
+
+ <div id="tag_cloud">
+    <% tag_cloud Profile.tag_counts, %w[s m l ] do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
     
 <div class="row profile-list">
     <%  @users.each do |user| %>
@@ -13,7 +19,7 @@
       </div>
     <% end %>
     </div>
-    <% paginate @users %>
+    <%# paginate @users %>
 </div>
 
 
