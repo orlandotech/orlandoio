@@ -19,6 +19,8 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   has_many :social_links, dependent: :destroy  
   accepts_nested_attributes_for :social_links, :reject_if => lambda { |a| a[:link].blank? }, :allow_destroy => true
+  # acts_as_taggable 
+  # acts_as_taggable_on :skills, :locations 
 
   has_attached_file :avatar, styles: { 
     large: "450x450#",
@@ -28,15 +30,17 @@ class Profile < ActiveRecord::Base
   }, 
     default_url:"/images/:style/missing.png"
 
-# user update_columns? 
-after_update :profile_completeness
-
 scope :published, -> { where(public: true)}
 
-private
-
-def profile_completeness
-  self.update_columns(public: true)  if (self.bio.present? && self.avatar.present? && self.category.present?)
+def update_for_profile(profile_params)
+  self.attributes = profile_params
+  self.set_profile_completeness
+  self.save
 end
+
+# private? where to put private 
+  def set_profile_completeness
+    self.public = (self.bio.present? && self.avatar.present? && self.category.present?)
+  end
 
 end

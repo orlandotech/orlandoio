@@ -14,9 +14,10 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-#friendly urls
+#friendly urls / nested forms / tagging
 gem 'friendly_id', '~> 5.0.0'
 gem 'nested_form'
+gem 'acts-as-taggable-on'
 
 # bootstrap fontawesome! 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',

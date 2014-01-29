@@ -36,8 +36,12 @@ class User < ActiveRecord::Base
 
   after_create :build_profile
 
-  scope :with_published_users, User.joins(:profile).where(Profile.published)
-  User.joins(:profile).merge(Profile.published)
+  #scope :with_published_users, User.joins(:profile).where(Profile.published)
+  scope :with_published_profile, -> { joins(:profile).merge(Profile.published) }
+  # scope :recent, -> { where('created_at > ?', 2.days.ago) }
+  #User.joins(:profile).merge(Profile.published)
+
+  # -> lamda runs when called
   
   extend FriendlyId
   friendly_id :full_name, use: [:slugged, :history, :finders]
