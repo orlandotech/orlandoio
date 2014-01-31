@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'friendly_id', '~> 5.0.0'
 gem 'nested_form'
 gem 'acts-as-taggable-on'
+gem 'rails-jquery-tokeninput'
 
 # bootstrap fontawesome! 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',

@@ -16,3 +16,14 @@
 //= require_tree .
 //= require twitter/bootstrap
 //= require jquery_nested_form
+//= require jquery.tokeninput
+
+$(function() {
+  $("#skills_tags").tokenInput("/tags.json", {
+      prePopulate:       $("#skills_tags").data("pre"),
+      preventDuplicates: true,
+      noResultsText:     "No results, needs to be created.",
+      animateDropdown:   false,
+      theme: 'facebook'
+  });
+});

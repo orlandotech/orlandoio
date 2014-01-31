@@ -20,7 +20,7 @@
 <div class="form-group">
 <%= f.label :tag_list, "Skills", class: "col-md-4 control-label" %>
 <div class="col-md-4">
-<%= f.text_field :tag_list, placeholder: "RoR, Growth Hacking, Venture" ,class: "form-control" %>
+<%= f.text_field :tag_list, id: "skills_tags", "data-pre" => @profile.tags.map{|t| {:id => t.name, :name => t.name }}.to_json %>
 </div>
 </div>
 

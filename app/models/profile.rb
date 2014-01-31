@@ -20,8 +20,7 @@ class Profile < ActiveRecord::Base
   has_many :social_links, dependent: :destroy  
   accepts_nested_attributes_for :social_links, :reject_if => lambda { |a| a[:link].blank? }, :allow_destroy => true
   acts_as_taggable 
-  # acts_as_taggable_on :skills, :locations 
-
+  # acts_as_taggable_on :tags
   has_attached_file :avatar, styles: { 
     large: "450x450#",
     medium: "300x300#", 
@@ -31,8 +30,6 @@ class Profile < ActiveRecord::Base
     default_url:"/images/:style/missing.png"
 
 scope :published, -> { where(public: true)}
-scope :tagged, -> {where(tag_list: params[:tags])}
-
 
 def update_for_profile(profile_params)
   self.attributes = profile_params

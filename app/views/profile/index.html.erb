@@ -12,13 +12,14 @@
     
 <div class="row profile-list">
     <%  @users.each do |user| %>
-      <div class="col-md-4">
+      <div class="col-xs-6 col-sm-4">
         <h1><%= link_to user.full_name, profile_path(user) %></h1>
         <%= image_tag user.profile.avatar(:medium) %><br/>
         <h4><% user.profile.category %></h4>
       </div>
     <% end %>
     </div>
+    <!-- Need to get @Users working again?  -->
     <%# paginate @users %>
 </div>
 
