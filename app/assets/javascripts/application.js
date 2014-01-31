@@ -11,17 +11,20 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require twitter/bootstrap
 //= require jquery_nested_form
 //= require jquery.tokeninput
+//= require turbolinks
 
 $(function() {
   $("#skills_tags").tokenInput("/tags.json", {
       prePopulate:       $("#skills_tags").data("pre"),
       preventDuplicates: true,
+      minChars: 2,
+      allowCustomEntry: true,
       noResultsText:     "No results, needs to be created.",
       animateDropdown:   false,
       theme: 'facebook'

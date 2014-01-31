@@ -26,7 +26,6 @@ class ProfileController < ApplicationController
   def update
     @user ||= current_user
     @profile = @user.profile
-    binding.pry
   
     if @profile.update_for_profile(profile_params)
       flash[:notice] = "Profile Updated"
