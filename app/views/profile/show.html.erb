@@ -21,7 +21,10 @@
     <div class="col-md-6 col-md-offset-1">
       <h3><%= @profile.bio %> </h3>
       <%= @profile.category %>
+
+      <% if @profile.tag_list %>
       <p>Skills: <%= raw @profile.tag_list.map {|t| link_to t, tag_path(t)}.join(", ") %></p>
+      <% end %>
       <!-- Add authorization for edit -->
   <br/>
   <% if current_user == @user %>

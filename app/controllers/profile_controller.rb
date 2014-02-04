@@ -2,9 +2,11 @@ class ProfileController < ApplicationController
  
  def index
   if params[:tags]
+    #TODO: refactor this fetch all users from a User query method.
     @published_users = User.with_published_profile
     @tagged_profiles = Profile.tagged_with(params[:tags], wild: true, any:true)
     @users = @tagged_profiles.map {|profile| @published_users.find(profile.user_id)}
+    @users = User.where(id: @users.map(&:id)).page params[:page]
   else
     @users = User.with_published_profile.page params[:page]
   end
@@ -37,9 +39,10 @@ class ProfileController < ApplicationController
   end
 
   def tags
-    @tag = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{params[:q]}")
+    @tag = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{params[:q]}%")
     respond_to do |format|
       format.json { render json: @tag.map{|t| {:id => t.name, :name => t.name }} }
+      # format.json { render json: @tag.tokens(params[:q]) }
     end
   end
 
