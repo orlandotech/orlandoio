@@ -1,19 +1,28 @@
 <% content_for :jumbotron do %>
+<div class="container-fluid">
 <div class="jumbotron jumbotron-custom text-center v-center">
   <div class="row content-text ">
     <h1>Orlando.io</h1>
     <h2>Startup Community Directory</h2>
-    <h3><%= @users.count %> People have joined Orlando.io </h3>
-    <%= link_to new_user_registration_path do %>
-    <button class="btn btn-success btn-lg">
-        <i class="fa fa-heart fa-lg"> </i>
-        Add Your Name!
-    </button>
+
+    <% if current_user %>
+      <%= link_to edit_user_registration_path do %>
+      <button class="btn btn-success btn-lg">
+          <i class="fa fa-heart fa-lg"> </i>
+          Add Your Name!
+      </button>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_registration_path do %>
+      <button class="btn btn-success btn-lg">
+          <i class="fa fa-heart fa-lg"> </i>
+          Add Your Name!
+      </button>
+      <% end %>
     <% end %>
-
-
   </div>
 </div> 
+</div>
 <% end %>
 
 
@@ -21,11 +30,11 @@
     <!-- Example row of columns -->
     <div class="row profile-list">
     <%  @users.each do |user| %>
-      <div class="col-md-4">
+      <div class="col-sm-6 col-md-4 col-xs-12">
         <h1>
             <%= link_to user.full_name, profile_path(user) %>
         </h1>
-            <%= image_tag user.profile.avatar(:medium) %><br/>
+            <%= image_tag user.profile.avatar(:medium), class: "img-responsive" %><br/>
       </div>
     <% end %>
     </div>
@@ -33,4 +42,3 @@
   </div>
 
      
-

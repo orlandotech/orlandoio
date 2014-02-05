@@ -8,7 +8,10 @@ u = User.new(
   password_confirmation: "helloworld",
   )
 u.save
-u.profile.update_attributes(bio: Faker::Lorem.sentence(14), category: categories.sample, avatar: "http://placehold.it/450x450/27EBF5")
+u.profile.update_attributes(bio: Faker::Lorem.sentence(14), 
+                            category: categories.sample, 
+                            avatar: "http://placehold.it/450x450/27EBF5")
+binding.pry
 
 10.times do 
   u = User.new(

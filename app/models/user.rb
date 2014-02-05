@@ -32,7 +32,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   
-  has_one :profile, dependent: :destroy 
+  has_one :profile, dependent: :destroy
+  has_many :social_links, through: :profile  
 
   after_create :build_profile
 

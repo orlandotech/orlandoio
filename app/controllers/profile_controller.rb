@@ -42,7 +42,6 @@ class ProfileController < ApplicationController
     @tag = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{params[:q]}%")
     respond_to do |format|
       format.json { render json: @tag.map{|t| {:id => t.name, :name => t.name }} }
-      # format.json { render json: @tag.tokens(params[:q]) }
     end
   end
 
