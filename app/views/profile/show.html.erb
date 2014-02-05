@@ -2,13 +2,8 @@
  <div class="row"> 
     <div class="col-md-4 col-xs-12">
     <h1><%= @user.full_name %></h1>
-  </div>
-  </div>
-  
-  <div class="row"> 
-    <div class="col-md-4 col-xs-12">
+
     <% if @profile.avatar.present? %>
-    <%-# binding.pry %>
      <%= image_tag @profile.avatar(:large), class: "img-responsive" %>
     <% else %>
        <div class="alert alert-warning alert-dismissable">

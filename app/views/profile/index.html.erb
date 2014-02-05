@@ -12,9 +12,9 @@
     
 <div class="row profile-list">
     <%  @users.each do |user| %>
-      <div class="col-xs-6 col-sm-4">
+      <div class="col-sm-6 col-md-4 col-xs-12">
         <h1><%= link_to user.full_name, profile_path(user) %></h1>
-        <%= image_tag user.profile.avatar(:medium) %><br/>
+        <%= image_tag user.profile.avatar(:medium), class: "img-responsive" %><br/>
         <h4><% user.profile.category %></h4>
       </div>
     <% end %>
