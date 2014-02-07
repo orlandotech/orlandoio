@@ -16,13 +16,15 @@
 @import "bootstrap-custom";
 @import "twitter/bootstrap";
 @import "font-awesome";
-
 @import url(http://fonts.googleapis.com/css?family=Antic+Slab);
-
 
 body {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+.navbar-fixed-top {
+  margin-bottom: 19px;
 }
 
 .form-signin {
