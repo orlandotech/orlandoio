@@ -13,12 +13,12 @@
 <div class="form-group">
 <%= f.label :category, class: "col-md-4 control-label" %>
 <div class="col-md-4">
-<%= f.select :category, ["Business", "Student", "Developer", "Designer"], class: "form-control" %>
+<%= f.select :category, %w(Business Designer Developer Student Blogger), class: "form-control" %>
 </div>
 </div>
 
 <div class="form-group">
-<%= f.label :tag_list, "Skills", class: "col-md-4 control-label" %>
+<%= f.label :tag_list, "Skills: (separated by commas) ", class: "col-md-4 control-label" %>
 <div class="col-md-4">
 <%= f.text_field :tag_list, id: "skills_tags", "data-pre" => @profile.tags.map{|t| {:id => t.name, :name => t.name }}.to_json %>
 </div>

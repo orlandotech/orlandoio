@@ -23,10 +23,20 @@ $(function() {
   $("#skills_tags").tokenInput("/tags.json", {
       prePopulate:       $("#skills_tags").data("pre"),
       preventDuplicates: true,
-      minChars: 2,
       allowCustomEntry: true,
       noResultsText:     "No results, needs to be created.",
       animateDropdown:   false,
-      theme: 'facebook'
+      theme: 'facebook',
+      onResult: function (results) {
+            if ( results.length == 0 ){
+              result = new Object();
+              result['id']    = $('#token-input-skills').val();
+              result['name']  = $('#token-input-skills').val();
+              results.push(result);
+            }
+            return results;
+        }
   });
 });
+
+        

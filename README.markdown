@@ -7,4 +7,3 @@ Connecting the people, places, and events, that make up the City Beautiful's tec
 * Login with email address or twitter
 * Link email and twitter accounts 
 * Filter profiles based on skills 
-

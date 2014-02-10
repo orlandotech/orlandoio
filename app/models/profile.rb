@@ -37,6 +37,15 @@ def update_for_profile(profile_params)
   self.save
 end
 
+def self.tokens(query)
+  tags = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{query}%")
+  if tags.empty?
+    [{id: "#{query}", name: "Add skill:  \"#{query}\""}]
+  else
+    tags
+  end
+end
+
 # private? where to put private 
   def set_profile_completeness
     self.public = (self.bio.present? && self.avatar.present? && self.category.present?)
