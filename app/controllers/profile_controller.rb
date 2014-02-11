@@ -3,6 +3,7 @@ class ProfileController < ApplicationController
  def index
   if params[:tags]
     #TODO: refactor this fetch all users from a User query method.
+    # tags = # url decode from here 
     @published_users = User.with_published_profile
     @tagged_profiles = Profile.tagged_with(params[:tags], wild: true, any:true)
     @users = @tagged_profiles.map {|profile| @published_users.find(profile.user_id)}
