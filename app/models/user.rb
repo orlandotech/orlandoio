@@ -30,10 +30,12 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable #, :omniauth_providers => [:facebook, :github]
+
   has_one :profile, dependent: :destroy
-  has_many :social_links, through: :profile  
+  has_many :social_links, through: :profile 
+  has_many :identities 
 
   after_create :build_profile
 
@@ -43,32 +45,19 @@ class User < ActiveRecord::Base
   #User.joins(:profile).merge(Profile.published)
 
   # -> lamda runs when called
+
+  def self.create_with_omniauth(info)
+    create(name: info["name"])
+  end
+
   
   extend FriendlyId
   friendly_id :full_name, use: [:slugged, :history, :finders]
 
-  def self.from_omniauth(auth)
-    where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
-  end
-
- def build_profile
-  profile = Profile.create(user: self)
-  SocialLink.create(profile_id: profile.id)
- end
-
-  def self.create_from_omniauth(auth)
-    #binding.pry
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.full_name = auth["info"]["name"]
-    end
-  end
-
-  def self.new_with_session(params, session)
+def self.new_with_session(params,session)
     if session["devise.user_attributes"]
-      new(sessions["devise.user_attributes"], without_protection: true) do |use|
-        user.attibutes = params
+      new(session["devise.user_attributes"],without_protection: true) do |user|
+        user.attributes = params
         user.valid?
       end
     else
@@ -76,13 +65,40 @@ class User < ActiveRecord::Base
     end
   end
 
-  def password_required?
-    super && provider.blank?
-  end
+  def self.from_omniauth(auth, current_user)
+    identity = Identity.where(:provider => auth.provider, :uid => auth.uid, :token => auth.credentials.token, :secret => auth.credentials.secret).first_or_initialize
+    if identity.user.blank?
+      user = current_user.nil? ? User.where('email = ?', auth["info"]["email"]).first : current_user
+      if user.blank?
+       user = User.new
+       user.password = Devise.friendly_token[0,10]
+       user.full_name = auth.info.name
+       user.email = auth.info.email
+       auth.provider == "twitter" ?  user.save(:validate => false) :  user.save
+     end
+     identity.username = auth.info.nickname
+     identity.user_id = user.id
+     identity.save
+   end
+   identity.user
+ end
 
-  def email_required?
-    super && provider.blank?
-  end
+ def build_profile
+  profile = Profile.create(user: self)
+  SocialLink.create(profile_id: profile.id)
+ end
+
+
+
+
+
+  # def password_required?
+  #   super && provider.blank?
+  # end
+
+  # def email_required?
+  #   super && provider.blank?
+  # end
 
  
 end

@@ -3,16 +3,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  # before_filter :check_for_email
+  def signed_in?
+    !!current_user
+  end
 
-   def check_for_email
-    if current_user
-      if current_user.email == "" 
-        redirect_to edit_user_registration_path  
-        flash[:notice] = "Complete your profile by adding your email address and profile picture! "
-    end
+  helper_method :current_user, :signed_in?
+
+  def current_user=(user)
+    @current_user = user 
+    session[:user_id] = user.nil? ? user : user.id
   end
-  end
+
 
 end
 

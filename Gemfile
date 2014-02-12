@@ -25,10 +25,15 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 gem 'font-awesome-rails'
 
-#authentication
+#authentication omnis 
 gem "devise", '~> 3.2.2'
 gem "omniauth"
 gem "omniauth-twitter"
+gem "omniauth-github"
+gem "omniauth-facebook"
+gem 'omniauth-meetup'
+gem 'omniauth-linkedin'
+gem 'omniauth-google-oauth2'
 
 # Image and file upload
 gem 'mini_magick'

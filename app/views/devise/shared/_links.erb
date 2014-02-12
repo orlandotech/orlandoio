@@ -27,6 +27,21 @@
       <i class="fa fa-twitter fa-3x"></i> 
      <% end %>
 
+     <% when :github %>
+     <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+      <i class="fa fa-github fa-3x"></i> 
+     <% end %>
+
+     <% when :facebook %>
+     <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+      <i class="fa fa-facebook fa-3x"></i> 
+     <% end %>
+
+     <% when :meetup %>
+     <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+      <i class="fa fa-meetup fa-3x"></i> 
+     <% end %>
+
     <% else %>
     <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %>
     <% end %>

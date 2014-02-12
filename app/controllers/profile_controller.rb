@@ -21,7 +21,7 @@ class ProfileController < ApplicationController
   end
 
   def edit
-    @user ||= current_user
+    @user = current_user
     @profile = @user.profile
     @social_links = SocialLink.where(profile_id: @profile.id) # array of all social links 
   end
@@ -45,7 +45,6 @@ class ProfileController < ApplicationController
       format.json { render json: @tag }
     end
   end
-
 
   private
   def profile_params

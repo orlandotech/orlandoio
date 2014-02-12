@@ -20,7 +20,6 @@ class Profile < ActiveRecord::Base
   has_many :social_links, dependent: :destroy  
   accepts_nested_attributes_for :social_links, :reject_if => lambda { |a| a[:link].blank? }, :allow_destroy => true
   acts_as_taggable 
-  # acts_as_taggable_on :tags
   has_attached_file :avatar, styles: { 
     large: "450x450#",
     medium: "300x300#", 
