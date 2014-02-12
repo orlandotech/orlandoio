@@ -5,10 +5,10 @@
     <h1>Orlando.io</h1>
     <h2>Startup Community Directory</h2>
     <% if current_user %>
-      <%= link_to edit_user_registration_path do %>
+      <%= link_to profile_index_path do %>
       <button class="btn btn-success btn-lg">
-          <i class="fa fa-heart fa-lg"> </i>
-          Add Your Name!
+          <i class="fa fa-users fa-lg"> </i>
+          Meet Orlando Tech!
       </button>
       <% end %>
     <% else %>
