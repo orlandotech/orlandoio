@@ -35,8 +35,7 @@ class User < ActiveRecord::Base
 
   has_one :profile, dependent: :destroy
   has_many :social_links, through: :profile 
-  has_many :identities 
-
+  has_many :identities, dependent: :destroy  
   after_create :build_profile
 
   #scope :with_published_users, User.joins(:profile).where(Profile.published)
