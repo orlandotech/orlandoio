@@ -14,7 +14,7 @@
     <% else %>
       <%= link_to new_user_registration_path do %>
       <button class="btn btn-success btn-lg">
-          <i class="fa fa-heart fa-lg"> </i>
+          <i class="fa fa-users fa-lg"> </i>
           Add Your Name!
       </button>
       <% end %>
@@ -27,7 +27,10 @@
 
 
  <div class="container">
-    <!-- Example row of columns -->
+  <div class="random-message">
+    <h2><center>A few random members of the Orlando Tech community</center></h2>
+  </div>
+
     <div class="row profile-list">
     <%  @users.each do |user| %>
       <div class="col-sm-6 col-md-4 col-xs-12">
@@ -38,7 +41,6 @@
       </div>
     <% end %>
     </div>
-    <%= paginate @users %>
   </div>
 
      

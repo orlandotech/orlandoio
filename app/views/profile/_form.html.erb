@@ -40,7 +40,7 @@
 <div class="col-md-4">
 <%= f.fields_for :social_links, html: {class: ""} do |m| %>
 
-<%= m.select :account, ["Facebook", "Twitter", "Linkedin", "Github", "Dribble"], class: "form-control"  %> 
+<%= m.select :account, %w(Facebook Twitter Linkedin Github Dribble), class: "form-control"  %> 
 
 <%= m.text_field :link, class: "" %>
 <%= m.link_to_remove "", class: "glyphicon glyphicon-ban-circle" %>

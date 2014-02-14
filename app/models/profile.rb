@@ -13,20 +13,19 @@
 #  avatar_content_type :string(255)
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
-#
 
 class Profile < ActiveRecord::Base
   belongs_to :user
   has_many :social_links, dependent: :destroy  
   accepts_nested_attributes_for :social_links, :reject_if => lambda { |a| a[:link].blank? }, :allow_destroy => true
-  acts_as_taggable 
+  acts_as_taggable
   has_attached_file :avatar, styles: { 
     large: "450x450#",
     medium: "300x300#", 
     thumb: "100x100#",
     mini: "32x32#" 
   }, 
-    default_url:"/images/:style/missing.png"
+  default_url:"/images/:style/missing.png"
 
 scope :published, -> { where(public: true)}
 
@@ -39,7 +38,7 @@ end
 def self.tokens(query)
   tags = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{query}%")
   if tags.empty?
-    [{id: "#{query}", name: "Add skill:  \"#{query}\""}]
+    [{id: "#{query}", name: "Add skill: \"#{query}\""}]
   else
     tags
   end

@@ -1,23 +1,20 @@
 class ProfileController < ApplicationController
  
  def index
-  if params[:tags]
-    #TODO: refactor this fetch all users from a User query method.
-    # tags = # url decode from here 
-    @published_users = User.with_published_profile
-    @tagged_profiles = Profile.tagged_with(params[:tags], wild: true, any:true)
-    @users = @tagged_profiles.map {|profile| @published_users.find(profile.user_id)}
-    @users = User.where(id: @users.map(&:id)).page params[:page]
-  else
-    @users = User.with_published_profile.page params[:page]
-  end
+    if params[:tags] 
+      @published_users = User.with_published_profile
+      @tagged_profiles = Profile.tagged_with(params[:tags], wild: true, any:true)
+      @users = @tagged_profiles.map {|profile| @published_users.find(profile.user_id)}
+      @users = User.where(id: @users.map(&:id)).page params[:page]
+    else
+      @users = User.with_published_profile.page params[:page]
+    end
  end
 
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
     @social_links = @profile.social_links
-  
   end
 
   def edit
@@ -42,7 +39,7 @@ class ProfileController < ApplicationController
   def tags
     @tag = Profile.tokens(params[:q])
     respond_to do |format|
-      format.json { render json: @tag }
+      format.json { render json: @tag.map{|t| {:id => t.name, :name => t.name }} }
     end
   end
 
