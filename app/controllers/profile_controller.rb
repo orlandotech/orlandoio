@@ -37,9 +37,9 @@ class ProfileController < ApplicationController
   end
 
   def tags
-    @tag = Profile.tokens(params[:q])
+    @tag = Profile.tokens(params[:q]).map{|t| {:id => t.name, :name => t.name }}
     respond_to do |format|
-      format.json { render json: @tag.map{|t| {:id => t.name, :name => t.name }} }
+      format.json { render json: @tag }
     end
   end
 

@@ -38,7 +38,7 @@ end
 def self.tokens(query)
   tags = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{query}%")
   if tags.empty?
-    [{id: "#{query}", name: "Add skill: \"#{query}\""}]
+    [{id: "#{query}", name: "#{query}"}]
   else
     tags
   end

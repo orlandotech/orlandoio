@@ -29,8 +29,8 @@ $(function() {
       onResult: function (results) {
             if ( results.length == 0 ){
               result = new Object();
-              result['id']    = $('#token-input-skills').val();
               result['name']  = $('#token-input-skills').val();
+              result['id']    = $('#token-input-skills').val();
               results.push(result);
             }
             return results;
