@@ -1,26 +1,27 @@
-
+<div class="social_links">
     <% for social_links in @profile.social_links %>
       <% case social_links.account %>
         <% when "Facebook" %>
-          <%= link_to social_links.link do %>
+          <%= link_to url_with_protocal(social_links.link) do %>
             <i class="fa fa-facebook fa-1x"> </i>
           <% end %>
         <% when "Github" %>
-          <%= link_to social_links.link do %>
+          <%= link_to url_with_protocal(social_links.link) do %>
             <i class="fa fa-github fa-1x"> </i>
           <% end %>
         <% when "Twitter" %>
-          
-          <%= link_to social_links.link do %>
+          <%= link_to url_with_protocal(social_links.link) do %>
             <i class="fa fa-twitter fa-1x"> </i>
           <% end %>
         <% when "Linkedin" %>
-          <%= link_to social_links.link do %>
+          <%= link_to url_with_protocal(social_links.link) do %>
             <i class="fa fa-linkedin fa-1x"> </i>
           <% end %>
-        <% when "Dribble" %>
-          <%= link_to social_links.link do %>
-            <i class="fa fa-dribble fa-1x"> </i>
-          <% end %>          
+        <% when "Dribbble" %>
+          <%= link_to url_with_protocal(social_links.link) do %>
+            <i class="fa fa-dribbble fa-1x"> </i>
+          <% end %>
       <% end %>
     <% end %>
+</div>
+

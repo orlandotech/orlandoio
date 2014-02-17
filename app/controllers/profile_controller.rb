@@ -9,6 +9,8 @@ class ProfileController < ApplicationController
     else
       @users = User.with_published_profile.page params[:page]
     end
+
+    @tag_cloud = Profile.tag_counts(:order => "name")
  end
 
   def show

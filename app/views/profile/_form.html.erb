@@ -5,8 +5,8 @@
 
 <div class="form-group">
 <%= f.label :bio, class: "col-md-4 control-label"  %>
-<div class="col-md-4"> 
-<%= f.text_area :bio, cols: 80 ,rows: 2, placeholder: "Describe Yourself", class: "form-control"%>                    
+<div class="col-md-4">
+<%= f.text_area :bio, cols: 80 ,rows: 2, placeholder: "Describe Yourself", class: "form-control"%>
 </div>
 </div>
 
@@ -39,15 +39,24 @@
 <%= f.label :social_links, "Social", class: "col-md-4 control-label" %>
 <div class="col-md-4">
 <%= f.fields_for :social_links, html: {class: ""} do |m| %>
-
-<%= m.select :account, %w(Facebook Twitter Linkedin Github Dribble), class: "form-control"  %> 
-
+<%= m.select :account, %w(Facebook Twitter Linkedin Github Dribbble), class: "form-control"  %>
 <%= m.text_field :link, class: "" %>
 <%= m.link_to_remove "", class: "glyphicon glyphicon-ban-circle" %>
 <% end %>
-<%= f.link_to_add "Add", :social_links, class: "btn-xs btn-primary " %>
+<% f.link_to_add "Add", :social_links, class: "btn btn-primary " %>
+
+<%= f.link_to_add :social_links do %>
+  <button class="btn btn-success">
+          <i class="fa fa-plus"> </i>
+
+      </button>
+  <% end %>
 </div>
 </div>
+
+
+
+
 
 <div class="form-group">
   <label class="col-md-4 control-label" for=""></label>

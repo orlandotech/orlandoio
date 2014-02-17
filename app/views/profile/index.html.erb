@@ -5,11 +5,11 @@
   </div>
 
  <div id="tag_cloud">
-    <% tag_cloud Profile.tag_counts, %w[s m l ] do |tag, css_class| %>
-      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-    <% end %>
+  <% @tag_cloud.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag.name) %>
+  <% end %>
   </div>
-    
+
 <div class="row profile-list">
     <%  @users.each do |user| %>
       <div class="col-sm-6 col-md-4 col-xs-12">
@@ -19,8 +19,6 @@
       </div>
     <% end %>
     </div>
-    <!-- Need to get @Users working again?  -->
-    <% paginate @users %>
+    <%= paginate @users %>
 </div>
-
 
