@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
- 
+
  def index
-    if params[:tags] 
+    if params[:tags]
       @published_users = User.with_published_profile
       @tagged_profiles = Profile.tagged_with(params[:tags], wild: true, any:true)
       @users = @tagged_profiles.map {|profile| @published_users.find(profile.user_id)}
@@ -20,13 +20,13 @@ class ProfileController < ApplicationController
   def edit
     @user = current_user
     @profile = @user.profile
-    @social_links = SocialLink.where(profile_id: @profile.id) # array of all social links 
+    @social_links = SocialLink.where(profile_id: @profile.id) # array of all social links
   end
 
   def update
     @user ||= current_user
     @profile = @user.profile
-  
+
     if @profile.update_for_profile(profile_params)
       flash[:notice] = "Profile Updated"
       redirect_to profile_path(current_user)
@@ -37,7 +37,7 @@ class ProfileController < ApplicationController
   end
 
   def tags
-    @tag = Profile.tokens(params[:q]).map{|t| {:id => t.name, :name => t.name }}
+    @tag = Profile.tokens(params[:q])
     respond_to do |format|
       format.json { render json: @tag }
     end

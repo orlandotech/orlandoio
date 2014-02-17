@@ -16,15 +16,15 @@
 
 class Profile < ActiveRecord::Base
   belongs_to :user
-  has_many :social_links, dependent: :destroy  
+  has_many :social_links, dependent: :destroy
   accepts_nested_attributes_for :social_links, :reject_if => lambda { |a| a[:link].blank? }, :allow_destroy => true
   acts_as_taggable
-  has_attached_file :avatar, styles: { 
+  has_attached_file :avatar, styles: {
     large: "450x450#",
-    medium: "300x300#", 
+    medium: "300x300#",
     thumb: "100x100#",
-    mini: "32x32#" 
-  }, 
+    mini: "32x32#"
+  },
   default_url:"/images/:style/missing.png"
 
 scope :published, -> { where(public: true)}
@@ -40,11 +40,11 @@ def self.tokens(query)
   if tags.empty?
     [{id: "#{query}", name: "#{query}"}]
   else
-    tags
+    tags.map{|t| {:id => t.name, :name => t.name }}
   end
 end
 
-# private? where to put private 
+# private? where to put private
   def set_profile_completeness
     self.public = (self.bio.present? && self.avatar.present? && self.category.present?)
   end
