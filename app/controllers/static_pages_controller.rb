@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     published_users = User.joins(:profile).merge(Profile.published)
-    @users = published_users.limit(10).offset(rand(published_users.count))
+    @users = published_users.limit(9).offset(rand(published_users.count))
   end
 
   def about

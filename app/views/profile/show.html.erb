@@ -1,32 +1,35 @@
 <div class="container">
  <div class="row">
     <div class="col-md-4 col-xs-12">
-    <h1><%= @user.full_name %></h1>
+    <% if !@profile.public %>
+    <div class="alert alert-warning alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Complete your <%= link_to "profile", edit_profile_path %> to get listed on Orlando.io!
+    </div>
+    <% end %>
 
+    <h1><%= @user.full_name %></h1>
     <% if @profile.avatar.present? %>
      <%= image_tag @profile.avatar(:large), class: "img-responsive" %>
-    <% else %>
-       <div class="alert alert-warning alert-dismissable">
-        Complete your <%= link_to "profile", edit_profile_path %> and get your face listed!
-      </div>
     <% end %>
     <h2><%= render "social" %></h2>
     </div>
 
-
     <div class="col-md-6 col-md-offset-1">
+      <div id="bio">
       <h3><%= @profile.bio %> </h3>
-      <%= @profile.category %>
+      <%# @profile.category %>
 
       <% if @profile.tag_list %>
       <p>Skills: <%= raw @profile.tag_list.map {|t| link_to t, tag_path(t)}.join(", ") %></p>
       <% end %>
-      <!-- Add authorization for edit -->
+
   <br/>
   <% if current_user == @user %>
     <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-primary"%>
   <% end %>
     </div>
+  </div>
 
 
 

@@ -7,14 +7,12 @@
     <% if current_user %>
       <%= link_to profile_index_path do %>
       <button class="btn btn-success btn-lg">
-          <i class="fa fa-users fa-lg"> </i>
           Meet Orlando Tech!
       </button>
       <% end %>
     <% else %>
       <%= link_to new_user_registration_path do %>
       <button class="btn btn-success btn-lg">
-          <i class="fa fa-users fa-lg"> </i>
           Add Your Name!
       </button>
       <% end %>
