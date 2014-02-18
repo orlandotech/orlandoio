@@ -1,9 +1,25 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
 @import url(http://fonts.googleapis.com/css?family=Exo+2);
 
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body{
   padding-top: 50px;
   min-height: 900px;
+  margin-bottom: 30px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #f5f5f5;
 }
 
 .navbar-fixed-top {
@@ -48,19 +64,18 @@ body{
   border-top-right-radius: 0;
 }
 
-.footer {
-  height: auto;
-  background-color: #f5f5f5;
-  font-family: 'Open Sans', serif;
-  font-size: 16px;
-  font-weight: 600;
+.footer-text{
   text-align: center;
 }
 
 
+
+
+
+
 .jumbotron-custom{
   height: 900px;
-  background: url(orlandosun.jpg) repeat-y center center fixed;
+  background: url(orlandosunsmall.jpg) repeat-y center center fixed;
   background-size: cover;
   margin: 0 auto;
   width: 100%;
@@ -91,6 +106,14 @@ body{
   font-family: 'Open Sans', serif;
   font-weight: 800;
   }
+
+.pagination {
+  margin: 0 0 10px 0;
+}
+
+.profile-list{
+  margin-bottom: 0px;
+}
 
 .profile-list a {
   font-family: 'Open Sans', serif;
