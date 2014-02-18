@@ -27,7 +27,7 @@ class ProfileController < ApplicationController
   end
 
   def update
-    @user ||= current_user
+    @user = current_user
     @profile = @user.profile
 
     if @profile.update_for_profile(profile_params)
