@@ -10,6 +10,7 @@ class ProfileController < ApplicationController
       @users = User.with_published_profile.page params[:page]
     end
 
+    @users_count = @users.count
     @tag_cloud = Profile.tag_counts(:order => "name")
  end
 

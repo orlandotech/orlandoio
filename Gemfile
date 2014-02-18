@@ -20,12 +20,12 @@ gem 'nested_form'
 gem 'acts-as-taggable-on'
 gem 'rails-jquery-tokeninput'
 
-# bootstrap fontawesome! 
+# bootstrap fontawesome!
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 gem 'font-awesome-rails'
 
-#authentication omnis 
+#authentication omnis
 gem "devise", '~> 3.2.2'
 gem "omniauth"
 gem "omniauth-twitter"
@@ -57,6 +57,7 @@ gem "newrelic_rpm"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem "tweet-button"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -83,7 +84,7 @@ group :development do
   gem 'rb-inotify', :require => false
 end
 
-group :production do 
+group :production do
   gem 'pg'
   gem 'rails_12factor'
 end

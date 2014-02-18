@@ -16,4 +16,6 @@ def url_with_protocal(url)
   /^http/.match(url) ? url : "http://#{url}"
 end
 
+include TweetButton
+
 end

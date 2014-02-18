@@ -1,8 +1,8 @@
 <div class="container">
 
-  <h1>Members of the Orlando Tech community</h1>
-
-
+  <h1>Orlando Tech <%= @users_count %> members strong
+   <%= tweet_button(:url => "http://orlando.io", :text => "Join Orlando.io! Orlando's tech and startup community directory.", count: "horizontal") %>
+  </h1>
 
  <div id="tag_cloud">
   <% @tag_cloud.each do |tag| %>
