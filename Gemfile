@@ -19,6 +19,7 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'nested_form'
 gem 'acts-as-taggable-on'
 gem 'rails-jquery-tokeninput'
+gem 'redcarpet'
 
 # bootstrap fontawesome!
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',

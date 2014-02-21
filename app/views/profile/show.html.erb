@@ -21,7 +21,7 @@
 
     <div class="col-md-6 col-md-offset-1">
       <div id="bio">
-      <h3><%= @profile.bio %> </h3>
+      <h3><%= markdown(@profile.bio) %> </h3>
 
       <% if @profile.tag_list.present? %>
       <p><%= raw @profile.tag_list.map {|t| link_to t, tag_path(t)}.join(", ") %></p>

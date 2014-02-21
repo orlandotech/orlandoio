@@ -18,4 +18,11 @@ end
 
 include TweetButton
 
+def markdown(text)
+    renderer = Redcarpet::Render::HTML.new
+    extensions = {autolink: true}
+    redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+    (redcarpet.render text).html_safe
+  end
+
 end
