@@ -6,7 +6,7 @@
 <div class="form-group">
 <%= f.label :bio, class: "col-md-4 control-label"  %>
 <div class="col-md-4">
-<%= f.text_area :bio, cols: 80 ,rows: 2, placeholder: "Describe Yourself", class: "form-control"%>
+<%= f.text_area :bio, cols: 100 ,rows: 6, placeholder: "Describe Yourself", class: "form-control"%>
 </div>
 </div>
 
@@ -26,7 +26,7 @@
 
 
 <div class="form-group">
-<%= f.label :avatar, "Picture", class: "col-md-4 control-label" %>
+<%= f.label :avatar, "Profile Picture", class: "col-md-4 control-label" %>
 <div class="col-md-4">
  <%= f.file_field :avatar, class: "input-file" %>
 <% unless @user.profile.avatar %>
@@ -39,7 +39,7 @@
 <%= f.label :social_links, "Social", class: "col-md-4 control-label" %>
 <div class="col-md-4">
 <%= f.fields_for :social_links, html: {class: ""} do |m| %>
-<%= m.select :account, %w(Facebook Twitter Linkedin Github Dribbble), class: "form-control"  %>
+<%= m.select :account, %w(Facebook Twitter Linkedin Github Dribbble Website), class: "form-control"  %>
 <%= m.text_field :link, class: "" %>
 <%= m.link_to_remove "", class: "glyphicon glyphicon-ban-circle" %>
 <% end %>

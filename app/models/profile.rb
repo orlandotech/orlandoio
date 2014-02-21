@@ -27,6 +27,7 @@ class Profile < ActiveRecord::Base
   },
   default_url:"/images/:style/missing.png"
 
+validates :bio, length: {maximum: 250}
 scope :published, -> { where(public: true)}
 
 def update_for_profile(profile_params)

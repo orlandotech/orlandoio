@@ -33,23 +33,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable #, :omniauth_providers => [:facebook, :github]
 
+  validates :full_name, uniqueness: true
   has_one :profile, dependent: :destroy
-  has_many :social_links, through: :profile 
-  has_many :identities, dependent: :destroy  
+  has_many :social_links, through: :profile
+  has_many :identities, dependent: :destroy
   after_create :build_profile
-
-  #scope :with_published_users, User.joins(:profile).where(Profile.published)
   scope :with_published_profile, -> { joins(:profile).merge(Profile.published) }
-  # scope :recent, -> { where('created_at > ?', 2.days.ago) }
-  #User.joins(:profile).merge(Profile.published)
 
-  # -> lamda runs when called
 
   def self.create_with_omniauth(info)
     create(name: info["name"])
   end
 
-  
+
   extend FriendlyId
   friendly_id :full_name, use: [:slugged, :history, :finders]
 
@@ -99,5 +95,5 @@ def self.new_with_session(params,session)
   #   super && provider.blank?
   # end
 
- 
+
 end
