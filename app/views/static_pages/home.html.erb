@@ -35,7 +35,7 @@
         <h1>
             <%= link_to user.full_name, profile_path(user) %>
         </h1>
-            <%= image_tag user.profile.avatar(:medium), class: "img-responsive" %><br/>
+            <%= link_to (image_tag user.profile.avatar(:medium)), profile_path(user), class: "img-responsive" %><br/>
       </div>
     <% end %>
     </div>

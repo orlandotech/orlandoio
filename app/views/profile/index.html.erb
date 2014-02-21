@@ -14,7 +14,7 @@
     <%  @users.each do |user| %>
       <div class="col-sm-6 col-md-4 col-xs-12">
         <h1><%= link_to user.full_name, profile_path(user) %></h1>
-        <%= image_tag user.profile.avatar(:medium), class: "img-responsive" %><br/>
+        <%= link_to (image_tag user.profile.avatar(:medium)),profile_path(user) , class: "img-responsive" %><br/>
         <h4><% user.profile.category %></h4>
       </div>
     <% end %>
