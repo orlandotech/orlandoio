@@ -51,6 +51,8 @@ gem 'faker'
 gem 'awesome_print'
 gem 'annotate'
 gem "newrelic_rpm"
+gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
+
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

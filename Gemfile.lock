@@ -6,6 +6,15 @@ GIT
       railties (>= 3.0)
       sass (>= 3.2)
 
+GIT
+  remote: https://github.com/getsentry/raven-ruby.git
+  revision: 5fc3a9a58cd7e10182421434bba44f8e70465900
+  specs:
+    sentry-raven (0.7.1)
+      faraday (>= 0.7.6)
+      hashie (>= 1.1.0)
+      uuidtools
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -319,6 +328,7 @@ DEPENDENCIES
   redcarpet
   sass-rails (~> 4.0.0)
   sdoc
+  sentry-raven!
   sextant
   sqlite3
   thin
