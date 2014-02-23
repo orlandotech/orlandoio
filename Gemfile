@@ -20,6 +20,7 @@ gem 'nested_form'
 gem 'acts-as-taggable-on'
 gem 'rails-jquery-tokeninput'
 gem 'redcarpet'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 # bootstrap fontawesome!
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
