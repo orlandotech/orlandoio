@@ -27,7 +27,10 @@ class Profile < ActiveRecord::Base
   },
   default_url:"/images/:style/missing.png"
 
-validates :bio, length: {maximum: 250}
+validates :bio, length: {maximum: 255} #, :message => "Bio lenght is to long. Max 255 characters"
+validates :bio, presence: true #, message: "Bio is required"
+validates :avatar, presence: true #, message: "Profile pictured is required"
+
 scope :published, -> { where(public: true)}
 
 def update_for_profile(profile_params)

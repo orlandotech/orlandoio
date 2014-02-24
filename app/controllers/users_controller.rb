@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to @user 
+      redirect_to @user
       flash[:notice] = "Profile successfuly updated"
     else
       render action: "edit", alert: "Profile was not updated"
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    self.current_user = nil 
+    self.current_user = nil
     redirect_to root_url, notice: "signed out"
   end
 
