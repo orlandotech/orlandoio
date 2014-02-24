@@ -80,6 +80,7 @@ def self.new_with_session(params,session)
 
  def build_profile
   profile = Profile.create(user: self)
+  profile.save(:validate => false)
   SocialLink.create(profile_id: profile.id)
  end
 
