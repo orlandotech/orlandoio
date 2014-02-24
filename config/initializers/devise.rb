@@ -10,7 +10,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'admin@example.com'
+  config.mailer_sender = 'hello@orlando.io'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -233,7 +233,7 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV['FB_ID'], ENV['FB_Secret']
 
 
-  
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

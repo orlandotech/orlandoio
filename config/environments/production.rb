@@ -78,7 +78,9 @@ Orlandoio::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = { :host => 'odavis-orlandoio.heroku.com' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => 'orlando.io' }
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
     :port      => 25, # ports 587 and 2525 are also supported with STARTTLS
