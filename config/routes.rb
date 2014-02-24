@@ -1,5 +1,7 @@
 Orlandoio::Application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get "tags/:tags", to: "profile#index", as: :tag
   get "tags/", to: "profile#tags", as: :tags
 
