@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140223131648) do
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
   create_table "profiles", force: true do |t|
-    t.text     "bio",                 limit: 255, default: ""
+    t.string   "bio"
     t.string   "social"
     t.string   "category"
     t.integer  "user_id"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140223131648) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.boolean  "public",                          default: false
+    t.boolean  "public",              default: false
   end
 
   create_table "social_links", force: true do |t|
