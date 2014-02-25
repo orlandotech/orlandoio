@@ -34,7 +34,7 @@ class ProfileController < ApplicationController
       flash[:notice] = "Profile Updated"
       redirect_to profile_path(current_user)
     else
-      flash[:error] = "Error updating profile"
+      # flash[:danger] = "Error updating profile"
       render :edit
     end
   end

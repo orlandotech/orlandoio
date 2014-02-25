@@ -1,5 +1,13 @@
 <div class="container">
-  <br/>
+
+<% if !@profile.public %>
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Warning!</strong> Complete your <%= link_to "profile", edit_profile_path %> to get listed on Orlando.io!
+</div>
+<% end %>
+
+ <br/>
 <%= render "form" %>
 </div>
 
