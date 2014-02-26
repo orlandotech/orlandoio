@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223131648) do
+ActiveRecord::Schema.define(version: 20140226151244) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140223131648) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "identities", force: true do |t|
-    t.integer  "uid"
+    t.integer  "uid",        limit: 8
     t.string   "provider"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140223131648) do
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
   create_table "profiles", force: true do |t|
-    t.string   "bio"
+    t.text     "bio",                 limit: 255
     t.string   "social"
     t.string   "category"
     t.integer  "user_id"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140223131648) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.boolean  "public",              default: false
+    t.boolean  "public",                          default: false
   end
 
   create_table "social_links", force: true do |t|

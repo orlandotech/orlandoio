@@ -16,14 +16,16 @@ class ApplicationController < ActionController::Base
 
 # redirect normal signup to complete profile
 def after_sign_in_path_for(resource)
-  if @user.profile.public == true
+  if current_user.profile.public == true
     flash[:notice] = "Successfully signed in"
-    profile_path(@user)
+    profile_index_path
   else
-    flash[:danger] = "Complete your profile to get listed on Orlando.io"
-    edit_profile_path(@user)
+    edit_profile_path(current_user)
   end
 end
+
+
+
 
 end
 

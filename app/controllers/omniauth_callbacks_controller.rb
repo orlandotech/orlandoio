@@ -7,10 +7,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if user.persisted?
       identity = Identity.where(:provider => auth.provider, :uid => auth.uid, :token => auth.credentials.token, :secret => auth.credentials.secret).first_or_initialize
       if user.profile.public == true
-        flash[:notice] = "Successfully signed in"
-        sign_in_and_redirect(user, identity.user)
+        sign_in(user)
+        redirect_to profile_index_path
       else
-        flash[:danger] = "Complete your profile to get listed on Orlando.io"
         sign_in(user)
         redirect_to(edit_profile_path(identity.user))
       end

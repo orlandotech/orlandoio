@@ -50,6 +50,13 @@
 
 <!-- Alerts -->
 <div class="container">
+<% if current_user && !current_user.profile.public %>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      Complete your <%= link_to "profile", edit_profile_path(current_user) %> to get listed on Orlando.io!
+  </div>
+  <% end %>
+
   <% if flash[:notice] %>
   <div class="alert alert-success alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
