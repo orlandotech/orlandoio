@@ -15,8 +15,19 @@ class ApplicationController < ActionController::Base
   end
 
 # redirect normal signup to complete profile
+
+def authenticate_admin_user! #use predefined method name
+  redirect_to '/' and return if user_signed_in? && !current_user.admin?
+  authenticate_user!
+end
+
+def current_admin_user #use predefined method name
+  return nil if user_signed_in? && !current_user.admin?
+  profile_path(current_user)
+end
+
 def after_sign_in_path_for(resource)
-  if current_user.profile.public == true
+ if current_user.profile.public == true
     flash[:notice] = "Successfully signed in"
     profile_index_path
   else
