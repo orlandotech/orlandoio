@@ -6,7 +6,7 @@
 
 <ul class="tags" style="list-style: none;">
   <% @tag_cloud.each do |tag| %>
-    <li><%= link_to tag_path(tag.name) do %>
+    <li class="tags <%= %w(green blue none).sample %>"><%= link_to tag_path(tag.name) do %>
     <%= tag.name %><span><%= tag.count %></span>
     <% end %>
   </li>
