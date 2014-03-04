@@ -4,11 +4,14 @@
    <%= tweet_button(:url => "http://www.orlando.io", :text => "Join Orlando.io! Orlando's tech and startup community directory. #orlandotech #orltech #orlandoio", count: "horizontal", via: "orlndotech") %>
   </h1>
 
- <div id="tag_cloud">
+<ul class="tags" style="list-style: none;">
   <% @tag_cloud.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag.name) %>
+    <li><%= link_to tag_path(tag.name) do %>
+    <%= tag.name %><span><%= tag.count %></span>
+    <% end %>
+  </li>
   <% end %>
-  </div>
+</ul>
 
 <div class="row profile-list">
     <%  @users.each do |user| %>
@@ -21,4 +24,3 @@
     </div>
     <%= paginate @users %>
 </div>
-
