@@ -16,8 +16,6 @@ def url_with_protocal(url)
   /^http/.match(url) ? url : "http://#{url}"
 end
 
-include TweetButton
-
 def markdown(text)
     return unless text
     renderer = Redcarpet::Render::HTML.new
