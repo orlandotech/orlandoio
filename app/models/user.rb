@@ -24,6 +24,7 @@
 #  uid                    :string(255)
 #  provider               :string(255)
 #  slug                   :string(255)
+#  admin                  :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base

@@ -3,7 +3,7 @@
 # Table name: profiles
 #
 #  id                  :integer          not null, primary key
-#  bio                 :string(255)
+#  bio                 :text(255)
 #  social              :string(255)
 #  category            :string(255)
 #  user_id             :integer
@@ -13,6 +13,7 @@
 #  avatar_content_type :string(255)
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
+#  public              :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
