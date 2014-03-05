@@ -17,9 +17,16 @@
 //= require twitter/bootstrap
 //= require jquery_nested_form
 //= require jquery.tokeninput
+//= require select2
 //= require turbolinks
 
 $(function() {
+
+  $("#tags").select2({
+    placeholder: "Search skills",
+    allowClear: true
+  });
+
   $("#skills_tags").tokenInput("/tags.json", {
       prePopulate:       $("#skills_tags").data("pre"),
       allowCustomEntry: true,

@@ -27,6 +27,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 gem 'font-awesome-rails'
 
+
 #authentication omnis
 gem "devise", '~> 3.2.2'
 gem "omniauth"

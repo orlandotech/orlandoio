@@ -12,6 +12,11 @@ class ProfileController < ApplicationController
 
     @users_count = User.with_published_profile.count
     @tag_cloud = Profile.tag_counts(:order => "name")
+
+    @tag = params[:tags]
+
+    # { redirect_to admin_c_events_path }
+    # binding.pry
  end
 
   def show
@@ -40,9 +45,11 @@ class ProfileController < ApplicationController
   end
 
   def tags
+    # binding.pry
     @tag = Profile.tokens(params[:q])
     respond_to do |format|
       format.json { render json: @tag }
+
     end
   end
 

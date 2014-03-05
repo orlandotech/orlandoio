@@ -4,14 +4,9 @@
    <%= tweet_button(:url => "http://www.orlando.io", :text => "Join Orlando.io! Orlando's tech and startup community directory. #orlandotech #orltech #orlandoio", count: "horizontal", via: "orlndotech") %>
   </h1>
 
-<ul class="tags" style="list-style: none;">
-  <% @tag_cloud.each do |tag| %>
-    <li class="tags <%= %w(green blue none).sample %>"><%= link_to tag_path(tag.name) do %>
-    <%= tag.name %><span><%= tag.count %></span>
-    <% end %>
-  </li>
-  <% end %>
-</ul>
+<form action="/profile/" method="get">
+  <%= select_tag :tags, options_for_select(@tag_cloud, params[:tags]), :onchange => "this.form.submit();", tags: nil, remote: true  %>
+</form>
 
 <div class="row profile-list">
     <%  @users.each do |user| %>
