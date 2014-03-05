@@ -12,7 +12,7 @@ class ProfileController < ApplicationController
 
     @users_count = User.with_published_profile.count
     @tag_cloud = Profile.tag_counts(:order => "name")
-
+    @tag = params[:tags]
  end
 
   def show
