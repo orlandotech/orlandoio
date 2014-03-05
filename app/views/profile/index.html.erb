@@ -5,7 +5,7 @@
   </h1>
 
 <form action="/profile/" method="get">
-  <%= select_tag :tags, options_for_select(@tag_cloud, params[:tags]), :onchange => "this.form.submit();", tags: nil, remote: true  %>
+  <%= select_tag :tags, options_for_select(@tag_cloud), :onchange => "this.form.submit();", data: { placeholder: "Search skills" }   %>
 </form>
 
 <div class="row profile-list">

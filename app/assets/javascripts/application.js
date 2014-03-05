@@ -24,7 +24,8 @@ $(function() {
 
   $("#tags").select2({
     placeholder: "Search skills",
-    allowClear: true
+    allowClear: true,
+    width: "resolve"
   });
 
   $("#skills_tags").tokenInput("/tags.json", {
