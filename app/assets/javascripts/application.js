@@ -21,9 +21,29 @@
 //= require turbolinks
 
 $(function() {
+
   $("#tags").select2({
     placeholder: "Search skills",
     allowClear: true,
     width: "resolve"
   });
+
+  $("#skills_tags").tokenInput("/tags.json", {
+      prePopulate:       $("#skills_tags").data("pre"),
+      allowCustomEntry: true,
+      noResultsText:     "No results, needs to be created.",
+      animateDropdown:   false,
+      theme: 'facebook',
+      onResult: function (results) {
+            if ( results.length == 0 ){
+              result = new Object();
+              result['name']  = $('#token-input-skills').val();
+              result['id']    = $('#token-input-skills').val();
+              results.push(result);
+            }
+            return results;
+        }
+  });
+
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 });
