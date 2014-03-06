@@ -21,9 +21,9 @@
 //= require turbolinks
 
 $(function() {
-
   $("#tags").select2({
     placeholder: "Search skills",
     allowClear: true,
     width: "resolve"
   });
+});
