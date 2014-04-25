@@ -13,6 +13,11 @@ class ProfileController < ApplicationController
     @users_count = User.with_published_profile.count
     @tag_cloud = Profile.tag_counts(:order => "name")
     @tag = params[:tags]
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @users, :except=> [:email, :admin, :uid, :provider, :created_at, :updated_at, :slug, :category] }
+    end
  end
 
   def show
