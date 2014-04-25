@@ -2,7 +2,7 @@
 Orlando Startup Community Directory
 Connecting the people, places, and events, that make up the City Beautiful's tech community.
 
-This projected is licensed under the terms of the MIT license.
+This projected is licensed under the terms of the GPL license.
 
 #Instructions
 ~~~
