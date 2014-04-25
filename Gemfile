@@ -22,6 +22,7 @@ gem 'rails-jquery-tokeninput'
 gem 'redcarpet'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+
 # bootstrap fontawesome!
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'

@@ -32,8 +32,7 @@ class Profile < ActiveRecord::Base
 validates :bio, length: {maximum: 255, :message => "Bio length is too long. Max 255 characters" }
 validates :bio, presence: true
 validates :avatar, presence: true
-
-scope :published, -> { where(public: true)}
+scope     :published, -> { where(public: true)}
 
 def update_for_profile(profile_params)
   self.attributes = profile_params
