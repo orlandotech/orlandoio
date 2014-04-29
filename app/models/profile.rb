@@ -29,6 +29,9 @@ class Profile < ActiveRecord::Base
   },
   default_url:"/images/:style/missing.png"
 
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+
+
 validates :bio, length: {maximum: 255, :message => "Bio length is too long. Max 255 characters" }
 validates :bio, presence: true
 validates :avatar, presence: true
