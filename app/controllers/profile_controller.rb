@@ -1,5 +1,7 @@
 class ProfileController < ApplicationController
 
+before_action :authenticate_user!, :except => [:index, :show, :tags]
+
  def index
     if params[:tags]
       @published_users = User.with_published_profile
